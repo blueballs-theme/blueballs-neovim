@@ -111,7 +111,7 @@ apply_highlight({
     Float = { fg = orange1 },
     Boolean = { fg = orange, gui = 'bold' },
     Character = { fg = orange1, gui = 'italic'},
-    String = { fg = orange, gui = 'italic'},
+    String = { fg = orange},
     StringDelimiter = { fg = orange1 },
 
     Keyword = { fg = cyan },
@@ -122,8 +122,7 @@ apply_highlight({
     PreProc = { fg = pink },
     Identifier = { fg = pink1 },
     Delimiter = { fg = purple1 },
-    Variable = { fg = purple1 },
-    VariableBuiltin = { fg = purple1, gui = 'bold' },
+    VariableBuiltin = { fg = purple1 },
     Conditional = { fg = cyan, gui = 'bold' },
     Statement = { fg = purple1, gui = 'bold' },
     Structure = { fg = yellow1 },
@@ -186,7 +185,6 @@ high_link('TSStringEscape', 'StringDelimiter')
 high_link('TSWarning', 'Warning')
 high_link('TSDanger', 'Error')
 high_link('TSTypeBuiltin', 'TypeBuiltin')
-high_link('TSVariable', 'Variable')
 high_link('TSVariableBuiltin', 'VariableBuiltin')
 -- }}}
 -- }}}
