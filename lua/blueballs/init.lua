@@ -1,46 +1,4 @@
--- TODO:
---
--- colors {{{
-local selection = "#7b7e8c"
-local comment = "#747dab"
-
-local accent = "#4b74ad"
-local accent0 = "#40587a"
-local accent1 = "#8eb9f5"
-
-local red = "#eb585f"
-local red0 = "#8b2f33"
-local red1 = "#f28b90"
-
-local purple = "#b96be1"
-local purple0 = "#8f41b7"
-local purple1 = "#d49af2"
-
-local pink = "#e871e1"
-local pink0 = "#9b4996"
-local pink1 = "#edabe9"
-
-local blue = "#4e5fc9"
-local blue0 = "#283275"
-local blue1 = "#96a3f2"
-
-local cyan = "#52e6da"
-local cyan0 = "#378680"
-local cyan1 = "#8ffff4"
-
-local green = "#69d26e"
-local green0 = "#357a38"
-local green1 = "#96f29b"
-
-local yellow = "#e1c85c"
-local yellow0 = "#9f8c39"
-local yellow1 = "f7e7a1"
-
-local orange = "#d7953f"
-local orange0 = "#9c6e31"
-local orange1 = "#edc186"
--- }}}
-
+require('blueballs.colors')
 -- functions {{{
 -- These functions were copied from NTBBloodbath's doom-one.nvim
 -- https://github.com/NTBBloodbath/doom-one.nvim/blob/main/lua/doom-one/init.lua
@@ -103,9 +61,17 @@ apply_highlight({
     Conceal = { fg = fg2 },
     IndentGuide = { fg = comment },
     VertSplit = { fg = comment, bg = bg0 },
+
+    StatusLine = { fg = fg, bg = bg2 },
+    StatusLineNC = { fg = comment, bg = bg0 },
+
+    Pmenu = { fg = fg, bg = bg2 },
+    PmenuSbar = { bg = bg2 },
+    PmenuThumb = { bg = accent },
+    PmenuSel = { fg = fg, bg = accent },
     -- }}}
     -- syntax highlighting {{{
-    Comment = { fg = comment, gui = 'italic' },
+    Comment = { fg = comment },
     CommentBold = { fg = comment, gui = 'bold' },
     SpecialComment = { fg = accent1, gui = 'italic'},
 
@@ -143,10 +109,10 @@ apply_highlight({
     LspDiagnosticsSignInformation = { fg = blue, bg = bg0 },
     LspDiagnosticsSignHint = { fg = green, bg = bg0 },
 
-    LspDiagnosticsUnderlineError = { fg = red, gui = 'undercurl' },
-    LspDiagnosticsUnderlineWarning = { fg = orange, gui = 'undercurl' },
-    LspDiagnosticsUnderlineInformation = { fg = blue, gui = 'undercurl' },
-    LspDiagnosticsUnderlineHint = { fg = green, gui = 'undercurl' },
+    LspDiagnosticsUnderlineError = { fg = red, gui = 'underline' },
+    LspDiagnosticsUnderlineWarning = { fg = orange, gui = 'underline' },
+    LspDiagnosticsUnderlineInformation = { fg = blue, gui = 'underline' },
+    LspDiagnosticsUnderlineHint = { fg = green, gui = 'underline' },
     -- }}}
     -- plugins {{{
     -- whichkey {{{
@@ -154,6 +120,23 @@ apply_highlight({
     WhichKeyDesc = { fg = fg },
     WhichKeySeparator = { fg = comment },
     WhichKeyGroup = { fg = accent },
+    -- }}}
+    -- nvim-tree {{{
+    NvimTreeNormal = { fg = fg, bg = bg0 },
+    NvimTreeSymlink = { fg = yellow1 },
+    NvimTreeRootFolder = { fg = comment },
+    NvimTreeExecFile = { fg = purple },
+    NvimTreeImageFile = { fg = cyan },
+    NvimTreeSpecialFile = { fg = pink },
+    -- }}}
+    -- telescope {{{
+    TelescopeNormal = { fg = fg, bg = bg2},
+    TelescopeBorder = { fg = comment, bg = bg2},
+    TelescopePromptBorder = { fg = accent, bg = bg2 },
+    TelescopeMatching = { fg = cyan, gui = 'bold' },
+    TelescopeSelection = { bg = accent },
+    TelescopeResultsIdentifier = { fg = fg },
+    TelescopeMultiSelection = { fg = fg, bg = selection },
     -- }}}
     -- }}}
 })
@@ -178,7 +161,6 @@ high_link('DiffAdd', 'LspDiagnosticsVirtualTextHint')
 high_link('DiffDelete', 'LspDiagnosticsVirtualTextError')
 high_link('DiffChange', 'LspDiagnosticsVirtualTextInformation')
 high_link('DiffText', 'LspDiagnosticsVirtualTextInformation')
-high_link('Pmenu', 'NormalPopover')
 -- }}}
 -- lsp {{{
 high_link('LspDiagnosticsDefaultError', 'Error')
@@ -198,5 +180,17 @@ high_link('TSWarning', 'Warning')
 high_link('TSDanger', 'Error')
 high_link('TSTypeBuiltin', 'TypeBuiltin')
 high_link('TSVariableBuiltin', 'VariableBuiltin')
+-- }}}
+-- plugins {{{
+-- nvim-tree {{{
+high_link('NvimTreeGitDirty', 'Warning')
+high_link('NvimTreeGitStaged', 'SpecialBold')
+high_link('NvimTreeGitMerge', 'Warning')
+high_link('NvimTreeGitRenamed', 'Info')
+high_link('NvimTreeGitNew', 'Success')
+-- }}}
+-- telescope {{{
+high_link('TelescopePreviewNormal', 'TelescopeNormal')
+-- }}}
 -- }}}
 -- }}}
