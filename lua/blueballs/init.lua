@@ -1,3 +1,5 @@
+-- TODO:
+--
 -- colors {{{
 local selection = "#7b7e8c"
 local comment = "#747dab"
@@ -120,6 +122,7 @@ apply_highlight({
     TypeBuiltin = { fg = green1, gui = 'bold'},
     Macro = { fg = pink, gui = 'italic' },
     PreProc = { fg = pink },
+    Include = { fg = pink, gui = 'bold' },
     Identifier = { fg = pink1 },
     Delimiter = { fg = purple1 },
     VariableBuiltin = { fg = purple1 },
@@ -143,7 +146,15 @@ apply_highlight({
     LspDiagnosticsUnderlineError = { fg = red, gui = 'undercurl' },
     LspDiagnosticsUnderlineWarning = { fg = orange, gui = 'undercurl' },
     LspDiagnosticsUnderlineInformation = { fg = blue, gui = 'undercurl' },
-    LspDiagnosticsUnderlineHint = { fg = green, gui = 'undercurl' }
+    LspDiagnosticsUnderlineHint = { fg = green, gui = 'undercurl' },
+    -- }}}
+    -- plugins {{{
+    -- whichkey {{{
+    WhichKey = { fg = accent, gui = 'bold' },
+    WhichKeyDesc = { fg = fg },
+    WhichKeySeparator = { fg = comment },
+    WhichKeyGroup = { fg = accent },
+    -- }}}
     -- }}}
 })
 -- }}}
@@ -167,6 +178,7 @@ high_link('DiffAdd', 'LspDiagnosticsVirtualTextHint')
 high_link('DiffDelete', 'LspDiagnosticsVirtualTextError')
 high_link('DiffChange', 'LspDiagnosticsVirtualTextInformation')
 high_link('DiffText', 'LspDiagnosticsVirtualTextInformation')
+high_link('Pmenu', 'NormalPopover')
 -- }}}
 -- lsp {{{
 high_link('LspDiagnosticsDefaultError', 'Error')
