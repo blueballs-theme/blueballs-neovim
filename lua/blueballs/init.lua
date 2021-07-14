@@ -44,6 +44,7 @@ apply_highlight({
     Directory = { fg = accent, gui = 'bold' },
     Title = { fg = accent, gui = 'bold' },
     -- }}}
+
     -- ui {{{
     Normal = { fg = fg, bg = bg },
     NormalPopover = { fg = fg, bg = bg2},
@@ -70,10 +71,11 @@ apply_highlight({
     PmenuThumb = { bg = accent },
     PmenuSel = { fg = fg, bg = accent },
     -- }}}
+
     -- syntax highlighting {{{
     Comment = { fg = comment },
     CommentBold = { fg = comment, gui = 'bold' },
-    SpecialComment = { fg = accent1, gui = 'italic'},
+    SpecialComment = { fg = accent1, gui = 'bold'},
 
     Number = { fg = orange},
     Float = { fg = orange1 },
@@ -98,6 +100,7 @@ apply_highlight({
     Function = { fg = green },
     Method = { fg = cyan1 },
     -- }}}
+
     -- lsp {{{
     LspDiagnosticsVirtualTextError = { fg = red1, bg = red0 },
     LspDiagnosticsVirtualTextWarning = { fg = orange1, bg = orange0 },
@@ -114,6 +117,7 @@ apply_highlight({
     LspDiagnosticsUnderlineInformation = { fg = blue, gui = 'underline' },
     LspDiagnosticsUnderlineHint = { fg = green, gui = 'underline' },
     -- }}}
+
     -- plugins {{{
     -- whichkey {{{
     WhichKey = { fg = accent, gui = 'bold' },
@@ -121,6 +125,7 @@ apply_highlight({
     WhichKeySeparator = { fg = comment },
     WhichKeyGroup = { fg = accent },
     -- }}}
+
     -- nvim-tree {{{
     NvimTreeNormal = { fg = fg, bg = bg0 },
     NvimTreeSymlink = { fg = yellow1 },
@@ -128,7 +133,9 @@ apply_highlight({
     NvimTreeExecFile = { fg = purple },
     NvimTreeImageFile = { fg = cyan },
     NvimTreeSpecialFile = { fg = pink },
+    NvimTreeCursorLine = { bg = bg },
     -- }}}
+
     -- telescope {{{
     TelescopeNormal = { fg = fg, bg = bg2},
     TelescopeBorder = { fg = comment, bg = bg2},
@@ -147,7 +154,9 @@ apply_highlight({
 high_link('Noise', 'Comment')
 high_link('NonText', 'CommentBold')
 high_link('Whitespace', 'Comment')
+high_link('ErrorMsg', 'Error')
 -- }}}
+
 -- ui {{{
 high_link('CursorColumn', 'CursorLine')
 high_link('TermCursor', 'Cursor')
@@ -162,12 +171,14 @@ high_link('DiffDelete', 'LspDiagnosticsVirtualTextError')
 high_link('DiffChange', 'LspDiagnosticsVirtualTextInformation')
 high_link('DiffText', 'LspDiagnosticsVirtualTextInformation')
 -- }}}
+
 -- lsp {{{
 high_link('LspDiagnosticsDefaultError', 'Error')
 high_link('LspDiagnosticsDefaultWarning', 'Warning')
 high_link('LspDiagnosticsDefaultInformation', 'Info')
 high_link('LspDiagnosticsDefaultHint', 'Success')
 -- }}}
+
 -- treesitter {{{
 high_link('TSConstructor', 'Structure')
 high_link('TSConstBuiltin', 'Constant')
@@ -181,6 +192,7 @@ high_link('TSDanger', 'Error')
 high_link('TSTypeBuiltin', 'TypeBuiltin')
 high_link('TSVariableBuiltin', 'VariableBuiltin')
 -- }}}
+
 -- plugins {{{
 -- nvim-tree {{{
 high_link('NvimTreeGitDirty', 'Warning')
@@ -189,8 +201,36 @@ high_link('NvimTreeGitMerge', 'Warning')
 high_link('NvimTreeGitRenamed', 'Info')
 high_link('NvimTreeGitNew', 'Success')
 -- }}}
+
 -- telescope {{{
 high_link('TelescopePreviewNormal', 'TelescopeNormal')
 -- }}}
 -- }}}
+-- }}}
+
+-- options {{{
+-- italic comments
+if vim.g.blueballs_italic_comments == nil then
+    vim.g.blueballs_italic_comments = true
+end
+
+if vim.g.blueballs_italic_comments then
+    apply_highlight({
+        Comment = { fg = comment, gui = 'italic' },
+        CommentBold = { fg = comment, gui = 'bold,italic' },
+        SpecialComment = { fg = accent1, gui = 'bold,italic'},
+    })
+end
+
+-- fringe
+if vim.g.blueballs_hide_fringe == nil then
+    vim.g.blueballs_hide_fringe = true
+end
+
+if vim.g.blueballs_hide_fringe then
+    apply_highlight({
+        EndOfBuffer = { fg = bg },
+        NvimTreeEndOfBuffer = { fg = bg0 }
+    })
+end
 -- }}}

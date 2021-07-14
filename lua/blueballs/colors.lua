@@ -17,11 +17,11 @@ accent1 = "#8eb9f5"
 
 red = "#eb585f"
 red0 = "#8b2f33"
-red2 = "#f28b90"
+red1 = "#f28b90"
 
 purple = "#b96be1"
 purple0 = "#8f41b7"
-purple2 = "#d49af2"
+purple1 = "#d49af2"
 
 pink = "#e871e1"
 pink0 = "#9b4996"
