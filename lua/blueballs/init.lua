@@ -145,6 +145,11 @@ apply_highlight({
     TelescopeResultsIdentifier = { fg = fg },
     TelescopeMultiSelection = { fg = fg, bg = selection },
     -- }}}
+    
+    -- git-signs
+    GitSignsAdd = { fg = green, bg = bg0 },
+    GitSignsChange = { fg = orange, bg = bg0 },
+    GitSignsDelete = { fg = red, bg = bg0 },
     -- }}}
 })
 -- }}}
@@ -168,7 +173,7 @@ high_link('MatchParen', 'Search')
 high_link('Todo', 'LspDiagnosticsVirtualTextWarning')
 high_link('DiffAdd', 'LspDiagnosticsVirtualTextHint')
 high_link('DiffDelete', 'LspDiagnosticsVirtualTextError')
-high_link('DiffChange', 'LspDiagnosticsVirtualTextInformation')
+high_link('DiffChange', 'LspDiagnosticsVirtualTextWarning')
 high_link('DiffText', 'LspDiagnosticsVirtualTextInformation')
 -- }}}
 
