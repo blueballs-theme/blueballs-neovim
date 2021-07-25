@@ -55,7 +55,8 @@ apply_highlight({
     LineNr = { fg = comment, bg = bg0 },
     CursorLine = { bg = bg0 },
     CursorLineNr = { fg = accent1, bg = accent0 },
-    Cursor = { bg = 'accent'},
+    Cursor = { fg = fg, bg = accent },
+    TermCursor = { fg = fg, gui = 'reverse' },
     SignColumn = { fg = fg, bg = bg0 },
     FoldColumn = { fg = accent, bg = bg0 },
     Folded = { fg = comment, bg = bg1, gui = 'italic' },
@@ -146,7 +147,7 @@ apply_highlight({
     TelescopeMultiSelection = { fg = fg, bg = selection },
     -- }}}
     
-    -- git-signs
+    -- git-signs {{{
     GitSignsAdd = { fg = green, bg = bg0 },
     GitSignsChange = { fg = orange, bg = bg0 },
     GitSignsDelete = { fg = red, bg = bg0 },
@@ -164,7 +165,6 @@ high_link('ErrorMsg', 'Error')
 
 -- ui {{{
 high_link('CursorColumn', 'CursorLine')
-high_link('TermCursor', 'Cursor')
 high_link('IndentGuideEven', 'IndentGuide')
 high_link('IndentGuideOdd', 'IndentGuide')
 high_link('IncSearch', 'Search')
