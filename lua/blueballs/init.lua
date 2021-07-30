@@ -205,6 +205,7 @@ high_link('NvimTreeGitStaged', 'SpecialBold')
 high_link('NvimTreeGitMerge', 'Warning')
 high_link('NvimTreeGitRenamed', 'Info')
 high_link('NvimTreeGitNew', 'Success')
+high_link('NvimTreeIndentMarker', 'Comment')
 -- }}}
 
 -- telescope {{{
