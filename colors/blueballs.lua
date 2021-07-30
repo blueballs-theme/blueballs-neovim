@@ -1,1 +1,1 @@
-require('blueballs')
+require("blueballs")
