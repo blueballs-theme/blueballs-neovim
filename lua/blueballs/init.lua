@@ -152,6 +152,16 @@ apply_highlight({
     GitSignsChange = { fg = orange, bg = bg0 },
     GitSignsDelete = { fg = red, bg = bg0 },
     -- }}}
+    
+    -- nvim-ts-rainbow {{{
+    rainbowcol1 = { fg = purple },
+    rainbowcol2 = { fg = blue },
+    rainbowcol3 = { fg = cyan },
+    rainbowcol4 = { fg = green },
+    rainbowcol5 = { fg = yellow },
+    rainbowcol6 = { fg = orange },
+    rainbowcol7 = { fg = pink },
+    -- }}}
 })
 -- }}}
 
