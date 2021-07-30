@@ -1,4 +1,4 @@
-require("blueballs.colors")
+require "blueballs.colors"
 -- functions {{{
 -- These functions were copied from NTBBloodbath's doom-one.nvim
 -- https://github.com/NTBBloodbath/doom-one.nvim/blob/main/lua/doom-one/init.lua
@@ -27,8 +27,8 @@ end
 -- }}}
 
 -- highlights {{{
-vim.cmd("hi clear")
-apply_highlight({
+vim.cmd "hi clear"
+apply_highlight {
     -- general {{{
     Error = { fg = red, gui = "bold" },
     Info = { fg = blue, gui = "bold" },
@@ -133,6 +133,7 @@ apply_highlight({
     NvimTreeImageFile = { fg = cyan },
     NvimTreeSpecialFile = { fg = pink },
     NvimTreeCursorLine = { bg = bg },
+    NvimTreeIndentMarker = { fg = comment },
     -- }}}
 
     -- telescope {{{
@@ -160,7 +161,8 @@ apply_highlight({
     rainbowcol6 = { fg = orange },
     rainbowcol7 = { fg = pink },
     -- }}}
-})
+}
+-- }}}
 -- }}}
 
 -- links {{{
@@ -213,7 +215,6 @@ high_link("NvimTreeGitStaged", "SpecialBold")
 high_link("NvimTreeGitMerge", "Warning")
 high_link("NvimTreeGitRenamed", "Info")
 high_link("NvimTreeGitNew", "Success")
-high_link("NvimTreeIndentMarker", "Comment")
 -- }}}
 
 -- telescope {{{
@@ -229,11 +230,11 @@ if vim.g.blueballs_italic_comments == nil then
 end
 
 if vim.g.blueballs_italic_comments then
-    apply_highlight({
+    apply_highlight {
         Comment = { fg = comment, gui = "italic" },
         CommentBold = { fg = comment, gui = "bold,italic" },
         SpecialComment = { fg = accent1, gui = "bold,italic" },
-    })
+    }
 end
 
 -- fringe
@@ -242,9 +243,9 @@ if vim.g.blueballs_hide_fringe == nil then
 end
 
 if vim.g.blueballs_hide_fringe then
-    apply_highlight({
+    apply_highlight {
         EndOfBuffer = { fg = bg },
         NvimTreeEndOfBuffer = { fg = bg0 },
-    })
+    }
 end
 -- }}}
