@@ -161,6 +161,11 @@ apply_highlight {
     rainbowcol6 = { fg = orange },
     rainbowcol7 = { fg = pink },
     -- }}}
+
+    -- indent-blankline {{{
+    IndentBlanklineChar = { fg = bg2 },
+    IndentBlanklineContextChar = { fg = comment },
+    -- }}}
 }
 -- }}}
 -- }}}
@@ -219,6 +224,11 @@ high_link("NvimTreeGitNew", "Success")
 
 -- telescope {{{
 high_link("TelescopePreviewNormal", "TelescopeNormal")
+-- }}}
+
+-- indent-blankline {{{
+high_link("IndentBlanklineSpaceChar", "IndentBlanklineChar")
+high_link("IndentBlanklineSpaceCharBlankline", "IndentBlanklineChar")
 -- }}}
 -- }}}
 -- }}}
